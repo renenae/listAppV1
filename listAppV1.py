@@ -13,18 +13,23 @@ myList = []
 
 def mainProgram():
     while True:
-        print("Hello, there! Let's work with lists!")
-        print("Choose one of the following options. Type a number ONLY!")
-        choice = input("""1. Add to list,
-2. Return the value at an index position 3.
-End program   """)
-    if choice == "1":
-        addToList()
-    elif choice == "2":
-        indexValues()
-    elif choice == "3":
-        break
-    #we need to add an exit program and error catching!
+        try:
+            print("Hello, there! Let's work with lists!")
+            print("Choose one of the following options. Type a number ONLY!")
+            choice = input("""1. Add to list,
+    2. Return the value at an index position
+    3. Random Choice
+    4. End program   """)
+            if choice == "1":
+                addToList()
+            elif choice == "2":
+                indexValues()
+            elif choice == "3":
+                randomSearch()
+            else:
+                break
+        except:
+            print("An error ocurred")
     
 def addToList():
     newItem = input("Please type an integer!   ")
