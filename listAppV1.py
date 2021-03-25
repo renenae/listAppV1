@@ -10,6 +10,7 @@ Program Goals:
 #create functions that will perfrom those actions above
 import random
 myList = []
+unique_list = []
 
 def mainProgram():
     while True:
@@ -19,9 +20,11 @@ def mainProgram():
             choice = input("""1. Add to list,
 2. Add a bunch of numbers
 3. Return the value at an index position
-4. Print contents of list
+4. Sort list
 5. Random Choice
-6. End program   """)
+6. Linear Search
+7. Print Lists
+8. End Program   """)
             if choice == "1":
                 addToList()
             elif choice == "2":
@@ -29,9 +32,13 @@ def mainProgram():
             elif choice == "3":
                 indexValues()
             elif choice == "4":
-                print(myList)
+                sortList(myList)
             elif choice == "5":
                 randomSearch()
+            elif choice == "6":
+                linearSearch()
+            elif choice == "7":
+                printLists()
             else:
                 break
         except:
@@ -49,6 +56,18 @@ def addABunch():
     for x in range(0, int(numToAdd)):
         myList.append(random.randint(0, int(numRange)))
     print("Your list is now complete!")
+
+
+def sortList(myList):
+    for x in myList:
+        if x not in unique_list:
+            unique_list.append(x)
+    unique_list.sort()
+    showMe = input("Wanna see your new list? Y/N   ")
+    if showMe.lower() == "y":
+        print(unique_list)
+
+    
 def indexValues():
     indexPos = input("At what index position would you like to look?   ")
     print(myList[int(indexPos)])
@@ -63,5 +82,17 @@ def linearSearch():
     for x in range (len(myList)):
         if myList [x] == int(searchItem):
             print("Your item is at index {}".format(x))
+    print(indexcount)
+
+def printLists():
+    if len(unique_list) == 0:
+        print(myList)
+    else:
+        whichOne = input("Which list? Sorted or un-sorted?   ")
+        if whichOne.lower() == "sorted":
+            print(unique_list)
+        else:
+            print(myList)
+            
 if __name__ == "__main__":
     mainProgram()
