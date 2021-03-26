@@ -84,6 +84,21 @@ def linearSearch():
             print("Your item is at index {}".format(x))
     print(indexcount)
 
+def recursiveBinarySearch(unique_list, low, high, x):
+    if high >= low:
+        mid = (high + low) // 2
+
+        if uniqeue_list[mid] ==x:
+            print("Oh, what luck. Your number is at position {}".format(mid))
+        elif unique_list[mid] > x:
+            return recursiveBinarySearch(unique_list, low, mid - 1, x)
+        else:
+            return recursiveBinarySearch(unique_list, mid + 1, high, x)
+        
+    else:
+        print("Your number isn't here!")
+
+
 def printLists():
     if len(unique_list) == 0:
         print(myList)
