@@ -85,16 +85,15 @@ def linearSearch():
     print("We're going to search the list IN THE WORST WAY POSSIBLE!")
     searchItem = input("What are you looking for? Number-wise?   ")
     for x in range (len(myList)):
-        if myList [x] == int(searchItem):
+        if myList [x] == int(searchValue):
             print("Your item is at index {}".format(x))
     print(indexcount)
 
 def recursiveBinarySearch(unique_list, low, high, x):
     if high >= low:
         mid = (high + low) // 2
-
-        if uniqeue_list[mid] ==x:
-            print("Oh, what luck. Your number is at position {}".format(mid))
+        if unique_list[mid] == x:
+            print("Your number is at position {}".format(mid))
             return mid 
         elif unique_list[mid] > x:
             return recursiveBinarySearch(unique_list, low, mid - 1, x)
@@ -121,7 +120,7 @@ def iterativeBinarySearch(unique_list, x):
 
 def indexValues():
     print("At what index position do you want to search?")
-    indexPos = input("Type an index position here:  ")
+    indexPos = input("Type an index position here:  ")      
     print (myList[int(indexPos)])
 
 
