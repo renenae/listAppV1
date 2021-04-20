@@ -37,7 +37,7 @@ def mainProgram():
             elif choice == "5":
                 linearSearch()
             elif choice == "6":
-                sortList()
+                sortList(myList)
             elif choice == "7":
                 printLists()
             elif choice == "8":
