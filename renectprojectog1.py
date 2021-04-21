@@ -17,13 +17,16 @@ def listTutorial():
         if tutChoice.lower() == 'y':
                  print("""   Okay then, let's get this started! This app is used to create lists.
 To make a list or add to it just press 2 once you enter the main menu!
-The next number 2 returns th
-e number you have previously used and displays it for you.
+The next number 2 returns the number you have previously used and displays it for you.
 3 adds well, a bunch of random numbers. Random search searches for a number randomly
 Linear search searches for a number in a line pattern going one by one through the list.
 Sort list sorts through the list. Print lists displays your list. And last but not least Recursive Binary Search,
 it searches for things but more efficently and faster!   """)
 
+"""
+The code above is what asks the user wehter they want to do the tutorial or not. If they put in "Y" Then the code
+starts printing the text above. If they say "N" then the code directly goes to the menu.
+"""
 
 
 def mainProgram():
@@ -41,7 +44,7 @@ def mainProgram():
 7. Print Lists
 8. Recursive Binary Search
 9. Quit   """)
-            
+
             if choice == "tut":
                 listTutorial()
             elif choice == "1":
@@ -66,12 +69,23 @@ def mainProgram():
                 break
         except:
             print("An error ocurred")
-    
+"""
+This is the menu and the functions. When the user presses one of the numbers assigned to a function,
+the code immediatly executes it and does the action corresponding to it. If something goes wrong,
+then it prints "An error occured"
+"""
+
+"""
+Add to list well makes a new list and adds an integer to it.
+"""
 
 def addToList():
     newItem = input("Please type an integer!   ")
     myList.append(int(newItem))
     print(myList)
+"""
+adds a bunch of numbers -_-
+"""
 
 def addABunch():
     print("We're gonna add a bunch of numbers!")
@@ -81,7 +95,9 @@ def addABunch():
         myList.append(random.randint(0, int(numRange)))
     print("Your list is now complete!")
 
-
+"""
+Checks through your lists
+"""
 def sortList(myList):
     for x in myList:
         if x not in unique_list:
@@ -91,15 +107,21 @@ def sortList(myList):
     if showMe.lower() == "y":
         print(unique_list)
 
-    
+"""
+Looks through a specific index position
+"""
 def indexValues():
     indexPos = input("At what index position would you like to look?   ")
     print(myList[int(indexPos)])
-
+"""
+randomly searches and chooses a value from your list
+"""
 def randomSearch():
    print("Here's a random value from your list!")
    print(myList[random.randint(0, len(myList)-1)])
-
+"""
+a bad way of searching for something
+"""
 def linearSearch():
     print("We're going to search the list IN THE WORST WAY POSSIBLE!")
     searchItem = input("What are you looking for? Number-wise?   ")
@@ -107,7 +129,9 @@ def linearSearch():
         if myList [x] == int(searchValue):
             print("Your item is at index {}".format(x))
     print(indexcount)
-
+"""
+premium way of searching for a value in a list
+"""
 def recursiveBinarySearch(unique_list, low, high, x):
     if high >= low:
         mid = (high + low) // 2
@@ -120,7 +144,9 @@ def recursiveBinarySearch(unique_list, low, high, x):
             return recursiveBinarySearch(unique_list, mid + 1, high, x)    
     else:
         print("Your number isn't here!")
-
+"""
+recursive binary search but make it spicier
+"""
 def iterativeBinarySearch(unique_list, x):
     low = 0
     high = len(unique_list)-1
@@ -136,15 +162,16 @@ def iterativeBinarySearch(unique_list, x):
         else:
             return mid
     return -1
-
+"""
+lets you choose where you want to look in an index position
+"""
 def indexValues():
     print("At what index position do you want to search?")
     indexPos = input("Type an index position here:  ")      
     print (myList[int(indexPos)])
-
-
-
-
+"""
+shows you your lists
+"""
 def printLists():
     if len(unique_list) == 0:
         print(myList)
